@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+dist/
+mochawesome-report/
+.env
+logs/
+logs/error.log

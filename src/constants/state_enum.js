@@ -1,0 +1,13 @@
+export var states = {
+  type: '',
+  ACCOUNT_ACTIVATE: {
+    enum: 1,
+  },
+  ACCOUNT_PAYMENT: 2,
+  POS_SELECTION: 3,
+  SETUP_PROFILE: 4,
+  SETUP_OFFER: 5,
+  SETUP_NEWSLETTER: 6,
+  SETUP_RECOGNITION: 7,
+  ACCOUNT_COMPLETE: 8,
+};

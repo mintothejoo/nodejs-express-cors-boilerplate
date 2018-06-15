@@ -5,7 +5,6 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import apicache from 'apicache';
 import config from './config/config';
-import passport from './config/passport';
 import cors from './config/cors';
 
 import { requestLogger, errorLogger } from './config/logger';
@@ -42,10 +41,7 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
-app.use('/' + config.prefix + '/auth', require('./routes/auth-route'));
-app.use('/' + config.prefix + '/merchant', require('./routes/merchant-public-route'));
+app.use('/' + config.prefix + '/init', require('./routes/init-route'));
 
 app.use((req, res, next) => {
   if (!req.user) {
@@ -54,7 +50,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/' + config.prefix + '/merchant', require('./routes/merchant-route'));
+// app.use('/' + config.prefix + '/merchant', require('./routes/merchant-route'));
 
 // app.use('/' + config.prefix, require('./routes/default-route'));
 

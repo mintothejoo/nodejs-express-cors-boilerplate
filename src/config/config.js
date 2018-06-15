@@ -10,7 +10,6 @@ const config = {
   version: definition.version,
   prefix: getenv('PREFIX', 'api'),
   env: getenv('NODE_ENV', 'development'),
-  host: getenv('PARSE_ADDR'),
   date: {
     format: 'YYYY-MM-DD',
     dateTimeDisplayFormat: 'LLLL',
@@ -22,32 +21,21 @@ const config = {
     colorize: false,
     files: [{ dirname: './logs', filename: 'error.log' }],
   },
-  alias: {
-    '': null,
-    analytics: {
-      host: getenv('ANALYTICS_SERVER_HOST'),
-      prefix: 'api/v1',
-      protocol: 'http',
-    },
-  },
   cors: {
     whitelist: {
       development: [
         undefined,
         'http://localhost',
-        'http://127.0.0.1:3001',
-        'http://localhost:3001',
-        'http://merchant.dev.com',
+        'http://127.0.0.1:3000',
+        'http://localhost:3000',
       ],
       staging: [
         undefined,
         'http://localhost',
-        'https://nodaji.herokuapp.com/',
       ],
       production: [
         undefined,
         'http://localhost',
-        'https://nodaji.herokuapp.com/',
       ],
     },
   },
